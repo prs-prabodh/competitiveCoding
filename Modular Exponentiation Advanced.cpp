@@ -8,9 +8,7 @@ using namespace std;
 const int M = (1e9)+7;
 long long int mod(long long a, long long b)
 {
-    if(a==1)
-        return 1;
-    if(b==0)
+    if(a==1||b==0)
         return 1;
     if(b==1)
         return a%M;
