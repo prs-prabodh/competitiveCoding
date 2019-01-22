@@ -14,17 +14,12 @@ int main()
 	    freopen("output.txt", "w", stdout);
 	#endif
 	
-	int n,count=0;
-	cin>>n;
-	int a[n];
-	for(int i=0;i<n;i++) cin>>a[i];
-	for(int i=1;i<n-1;i++){
-		if(a[i]==0 && a[i-1]==1 && a[i+1]==1){
-			count++;
-			a[i-1]=-1;
-			a[i+1]=-1;
-		}
-	}
-	cout<<count<<endl;
+	int n,k;
+	cin>>n>>k;
+	LL ans=0;
+	ans+=ceil((double)2*n/k);
+	ans+=ceil((double)5*n/k);
+	ans+=ceil((double)8*n/k);
+	cout<<ans<<endl;
     return 0;
 } 
