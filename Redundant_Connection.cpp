@@ -42,10 +42,10 @@ class Solution {
 
 // Driver Code
 
-int main() {
-		Solution sol;
-		vector<vector<int>> v({{1,2}, {2,3}, {3,4}, {1,4}, {1,5}});
-		vector<int> ans = sol.findRedundantConnection(v);
-		cout<<ans[0]<<' '<<ans[1]<<endl;
-		return 0;
-}
+// int main() {
+// 		Solution sol;
+// 		vector<vector<int>> v({{1,2}, {2,3}, {3,4}, {1,4}, {1,5}});
+// 		vector<int> ans = sol.findRedundantConnection(v);
+// 		cout<<ans[0]<<' '<<ans[1]<<endl;
+// 		return 0;
+// }
