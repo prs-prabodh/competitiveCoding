@@ -1,28 +1,39 @@
-/**
-*	@author Prabodh Ranjan Swain
-*	Institution - ASET, New Delhi
-*/
-#include<bits/stdc++.h>
-using namespace std;
-unordered_map<int, int> m;
-ll calc(int x, int m){
-    if(x==m)
-    return m;
-    if(x>m)
-    return 0;
-    return max(x+calc(x+2), calc(x+1));
-}
-int main()
-{
-	int n;
-    cin>>n;
-    int x, mn=INT_MIN;
-    for(int i=0;i<n;i++){
-        cin>>x;
-        f[x]++;
-        mn=max(mn,x);
-    }
-    int ans1=calc(1, mn), ans2=calc(2, mn);
-    cout<<max(ans1, ans2)<<endl;
-    return 0;
-}
+	/**
+	*	@author Prabodh Ranjan Swain
+	*	Institution - ASET, New Delhi
+	*/
+	#include <bits/stdc++.h>
+	#define ll long long
+	using namespace std;
+	unordered_map<int, ll> m;
+	ll *dp;
+	bool *calculated;
+	ll calc(ll x, ll n)
+	{
+		if(calculated[x] && x<=n)
+			return dp[x];
+		if (x == n)
+			return n*m[n];
+		if (x > n)
+			return 0;
+		dp[x] = max(x*m[x] + calc(x + 2, n), calc(x + 1, n));
+		calculated[x] = true;
+		return dp[x];
+	}
+	int main()
+	{
+		int n;
+		cin >> n;
+		ll x, mn = LLONG_MIN;
+		for (int i = 0; i < n; i++)
+		{
+			cin >> x;
+			m[x]++;
+			mn = max(mn, x);
+		}
+		dp = new ll[mn+1];
+		calculated = new bool[mn + 1];
+		memset(calculated, false, (mn+1)*sizeof(bool));
+		cout << calc(1, mn) << endl;
+		return 0;
+	}
