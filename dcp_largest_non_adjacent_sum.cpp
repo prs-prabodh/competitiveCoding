@@ -36,11 +36,6 @@ int main()
 			}
 			a[i] = tmp;
 		}
-		for (int i = 0; i < n; i++)
-		{
-			cout << a[i] << ' ';
-		}
-		cout << endl;
 		cout << max(a[n - 1], (n > 1 ? a[n - 2] : INT_MIN)) << endl;
 	}
 	return 0;
